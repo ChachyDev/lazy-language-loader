@@ -18,7 +18,6 @@ public class StateManager {
         if (languageManager == null) {
             throw new RuntimeException("The Language manager was accessed too early or was never set... Please report this to the developer");
         }
-
         return languageManager;
     }
 

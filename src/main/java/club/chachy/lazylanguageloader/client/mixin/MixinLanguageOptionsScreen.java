@@ -14,10 +14,9 @@ public class MixinLanguageOptionsScreen {
     @Inject(
         method = "method_19820",
         at = @At(
-            value = "INVOKE_ASSIGN",
+            value = "INVOKE",
             target = "Lnet/minecraft/client/MinecraftClient;reloadResources()Ljava/util/concurrent/CompletableFuture;",
-            ordinal = 0,
-            shift = At.Shift.BEFORE
+            ordinal = 0
         )
     )
     private void onResourceLoad(ButtonWidget widget, CallbackInfo info) {
@@ -28,7 +27,7 @@ public class MixinLanguageOptionsScreen {
     @Inject(
         method = "method_19820",
         at = @At(
-            value = "INVOKE_ASSIGN",
+            value = "INVOKE",
             target = "Lnet/minecraft/client/MinecraftClient;reloadResources()Ljava/util/concurrent/CompletableFuture;",
             ordinal = 0,
             shift = At.Shift.AFTER
