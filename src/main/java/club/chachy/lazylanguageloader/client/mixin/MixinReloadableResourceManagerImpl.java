@@ -3,7 +3,7 @@ package club.chachy.lazylanguageloader.client.mixin;
 import club.chachy.lazylanguageloader.client.state.StateManager;
 import net.minecraft.client.resource.language.LanguageManager;
 import net.minecraft.resource.ReloadableResourceManagerImpl;
-import net.minecraft.resource.ResourceReloader;
+import net.minecraft.resource.ResourceReloadListener;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,14 +15,14 @@ import java.util.Collections;
 @Mixin(ReloadableResourceManagerImpl.class)
 public class MixinReloadableResourceManagerImpl {
     @ModifyArg(
-        method = "reload",
+        method = "beginReloadInner",
         at = @At(
             value = "INVOKE",
             target = "Lcom/google/common/collect/Lists;newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;",
             remap = false
         )
     )
-    private Iterable<ResourceReloader> reload(Iterable<ResourceReloader> reloaders) {
+    private Iterable<ResourceReloadListener> reload(Iterable<ResourceReloadListener> reloaders) {
         if (StateManager.isResourceLoadViaLanguage()) {
             return Collections.singletonList(StateManager.getLanguageManager());
         }
@@ -30,10 +30,10 @@ public class MixinReloadableResourceManagerImpl {
         return reloaders;
     }
 
-    @Inject(method = "registerReloader", at = @At("HEAD"))
-    private void registerReloader(ResourceReloader reloader, CallbackInfo ci) {
-        if (reloader instanceof LanguageManager) {
-            StateManager.setLanguageManager((LanguageManager) reloader);
+    @Inject(method = "registerListener", at = @At("HEAD"))
+    private void registerListener(ResourceReloadListener listener, CallbackInfo ci) {
+        if (listener instanceof LanguageManager) {
+            StateManager.setLanguageManager((LanguageManager) listener);
         }
     }
 }
