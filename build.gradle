@@ -1,22 +1,18 @@
 plugins {
-	id "fabric-loom" version "0.9-SNAPSHOT"
+	id "fabric-loom" version "0.7-SNAPSHOT"
 }
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(16)
-	}
-
 	withSourcesJar()
 }
 
-version = "0.2.1"
+version = "0.2.2"
 group = "club.chachy"
 
 dependencies {
 	minecraft "com.mojang:minecraft:1.16"
 	mappings "net.fabricmc:yarn:1.16+build.4:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.11.6"
+	modImplementation "net.fabricmc:fabric-loader:0.10.6+build.214"
 }
 
 processResources {
@@ -29,7 +25,6 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	it.options.release.set(16)
 }
 
 jar {
