@@ -22,7 +22,7 @@ public class MixinReloadableResourceManagerImpl {
             remap = false
         )
     )
-    private Iterable<ResourceReloader> reload(Iterable<ResourceReloader> reloaders) {
+    private Iterable<ResourceReloader> lazyLanguageLoader$$onReload(Iterable<ResourceReloader> reloaders) {
         if (StateManager.isResourceLoadViaLanguage()) {
             return Collections.singletonList(StateManager.getLanguageManager());
         }
@@ -31,7 +31,7 @@ public class MixinReloadableResourceManagerImpl {
     }
 
     @Inject(method = "registerReloader", at = @At("HEAD"))
-    private void registerReloader(ResourceReloader reloader, CallbackInfo ci) {
+    private void lazyLanguageLoader$$onRegisterReloader(ResourceReloader reloader, CallbackInfo ci) {
         if (reloader instanceof LanguageManager) {
             StateManager.setLanguageManager((LanguageManager) reloader);
         }

@@ -19,7 +19,7 @@ public class MixinLanguageOptionsScreen {
             ordinal = 0
         )
     )
-    private void onResourceLoad(ButtonWidget widget, CallbackInfo info) {
+    private void lazyLanguageLoader$$preResourceLoad(ButtonWidget widget, CallbackInfo info) {
         StateManager.setResourceLoadViaLanguage(true);
     }
 
@@ -33,7 +33,7 @@ public class MixinLanguageOptionsScreen {
             shift = At.Shift.AFTER
         )
     )
-    private void onGameOptionWrite(ButtonWidget widget, CallbackInfo info) {
+    private void lazyLanguageLoader$$postResourceLoad(ButtonWidget widget, CallbackInfo info) {
         StateManager.setResourceLoadViaLanguage(false);
     }
 }
