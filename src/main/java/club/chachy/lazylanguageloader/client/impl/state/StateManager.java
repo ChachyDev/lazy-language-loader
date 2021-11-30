@@ -12,10 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StateManager {
+    private static final List<LanguageMatcher> languageMatchers = new ArrayList<>();
     private static boolean resourceLoadViaLanguage = false;
     private static LanguageManager languageManager = null;
 
-    private static final List<LanguageMatcher> languageMatchers = new ArrayList<>();
+    static {
+        languageMatchers.addAll(Arrays.asList(new CodeLanguageMatcher(), new NameLanguageMatcher(), new RegionLanguageMatcher()));
+    }
 
     public static boolean isResourceLoadViaLanguage() {
         return resourceLoadViaLanguage;
@@ -38,9 +41,5 @@ public class StateManager {
 
     public static boolean isMatchable(String input, LanguageDefinition definition) {
         return languageMatchers.stream().anyMatch((m) -> m.matches(input, definition));
-    }
-
-    static {
-        languageMatchers.addAll(Arrays.asList(new CodeLanguageMatcher(), new NameLanguageMatcher(), new RegionLanguageMatcher()));
     }
 }
