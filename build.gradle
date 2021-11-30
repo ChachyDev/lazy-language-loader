@@ -1,39 +1,39 @@
 plugins {
-	id "fabric-loom" version "0.10-SNAPSHOT"
+    id "fabric-loom" version "0.10-SNAPSHOT"
 }
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 
-	withSourcesJar()
+    withSourcesJar()
 }
 
 version = "0.2.3"
 group = "club.chachy"
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.18"
-	mappings "net.fabricmc:yarn:1.18+build.1:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.12.6"
+    minecraft "com.mojang:minecraft:1.18"
+    mappings "net.fabricmc:yarn:1.18+build.1:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.12.6"
 }
 
 processResources {
-	inputs.property "version", project.version
+    inputs.property "version", project.version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
-	}
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8"
-	it.options.release = 17
+    it.options.encoding = "UTF-8"
+    it.options.release = 17
 }
 
 jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}" }
-	}
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
 }
