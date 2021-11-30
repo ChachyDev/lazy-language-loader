@@ -1,0 +1,7 @@
+accessWidener v1 named
+
+accessible class net/minecraft/client/gui/screen/option/LanguageOptionsScreen$LanguageSelectionListWidget
+accessible method net/minecraft/client/gui/widget/EntryListWidget removeEntry (Lnet/minecraft/client/gui/widget/EntryListWidget$Entry;)Z
+accessible method net/minecraft/client/gui/widget/EntryListWidget addEntry (Lnet/minecraft/client/gui/widget/EntryListWidget$Entry;)I
+accessible method net/minecraft/client/gui/widget/EntryListWidget centerScrollOn (Lnet/minecraft/client/gui/widget/EntryListWidget$Entry;)V
+accessible method net/minecraft/client/gui/widget/EntryListWidget replaceEntries (Ljava/util/Collection;)V

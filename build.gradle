@@ -37,3 +37,8 @@ jar {
         rename { "${it}_${project.archivesBaseName}" }
     }
 }
+
+loom {
+    def resource = sourceSets.main.resources.srcDirs.first().toPath().resolve("${project.name}.accesswidener")
+    accessWidenerPath = file(resource)
+}
