@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.mixin.optimizations;
+package club.chachy.lazylanguageloader.client.mixin.optimizations.loading;
 
 import club.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.resource.language.LanguageManager;

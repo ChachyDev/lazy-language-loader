@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.mixin.optimizations;
+package club.chachy.lazylanguageloader.client.mixin.optimizations.loading;
 
 import club.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LanguageOptionsScreen.class)
 public class MixinLanguageOptionsScreen {
-    @SuppressWarnings("UnresolvedMixinReference")
     @Inject(
         method = "method_19820",
         at = @At(
@@ -23,7 +22,6 @@ public class MixinLanguageOptionsScreen {
         StateManager.setResourceLoadViaLanguage(true);
     }
 
-    @SuppressWarnings("UnresolvedMixinReference")
     @Inject(
         method = "method_19820",
         at = @At(

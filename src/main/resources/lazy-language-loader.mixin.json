@@ -4,8 +4,9 @@
   "package": "club.chachy.lazylanguageloader.client.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
-    "optimizations.MixinLanguageOptionsScreen",
-    "optimizations.MixinReloadableResourceManagerImpl",
+    "optimizations.loading.MixinLanguageOptionsScreen",
+    "optimizations.loading.MixinReloadableResourceManagerImpl",
+    "optimizations.splash.MixinMinecraftClient",
     "searchbar.MixinEntryListWidget",
     "searchbar.MixinLanguageOptionsScreen",
     "searchbar.accessor.LanguageEntryAccessor"
