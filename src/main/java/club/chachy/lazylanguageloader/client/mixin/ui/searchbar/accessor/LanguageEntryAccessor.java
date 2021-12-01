@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.mixin.searchbar.accessor;
+package club.chachy.lazylanguageloader.client.mixin.ui.searchbar.accessor;
 
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.resource.language.LanguageDefinition;

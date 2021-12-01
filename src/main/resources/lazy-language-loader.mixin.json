@@ -7,9 +7,9 @@
     "optimizations.loading.MixinLanguageOptionsScreen",
     "optimizations.loading.MixinReloadableResourceManagerImpl",
     "optimizations.splash.MixinMinecraftClient",
-    "searchbar.MixinEntryListWidget",
-    "searchbar.MixinLanguageOptionsScreen",
-    "searchbar.accessor.LanguageEntryAccessor"
+    "ui.searchbar.MixinEntryListWidget",
+    "ui.searchbar.MixinLanguageOptionsScreen",
+    "ui.searchbar.accessor.LanguageEntryAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -14,7 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class MixinMinecraftClient {
-    @Shadow @Nullable public Screen currentScreen;
+    @Shadow
+    @Nullable
+    public Screen currentScreen;
 
     @Inject(method = "setOverlay", at = @At("HEAD"), cancellable = true)
     private void lazyLanguageLoader$$setOverlay(Overlay overlay, CallbackInfo ci) {
