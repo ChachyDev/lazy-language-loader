@@ -1,6 +1,6 @@
-package club.chachy.lazylanguageloader.client.mixin;
+package club.chachy.lazylanguageloader.client.mixin.optimizations;
 
-import club.chachy.lazylanguageloader.client.state.StateManager;
+import club.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import org.spongepowered.asm.mixin.Mixin;

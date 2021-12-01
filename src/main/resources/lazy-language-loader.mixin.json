@@ -4,8 +4,11 @@
   "package": "club.chachy.lazylanguageloader.client.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
-    "MixinLanguageOptionsScreen",
-    "MixinReloadableResourceManagerImpl"
+    "optimizations.MixinLanguageOptionsScreen",
+    "optimizations.MixinReloadableResourceManagerImpl",
+    "searchbar.MixinEntryListWidget",
+    "searchbar.MixinLanguageOptionsScreen",
+    "searchbar.accessor.LanguageEntryAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

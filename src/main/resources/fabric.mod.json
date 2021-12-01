@@ -23,6 +23,7 @@
     "lazy-language-loader.mixin.json"
   ],
   "icon": "assets/lazy_language_loader/icon/icon_128.png",
+  "accessWidener": "lazy-language-loader.accesswidener",
   "depends": {
     "fabricloader": ">=0.12.3",
     "minecraft": "1.x.x",

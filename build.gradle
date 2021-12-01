@@ -10,7 +10,7 @@ java {
     withSourcesJar()
 }
 
-version = "0.2.5"
+version = "0.2.6"
 group = "club.chachy"
 
 dependencies {
@@ -36,4 +36,9 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
     }
+}
+
+loom {
+    def resource = sourceSets.main.resources.srcDirs.first().toPath().resolve("${project.name}.accesswidener")
+    accessWidenerPath = file(resource)
 }
