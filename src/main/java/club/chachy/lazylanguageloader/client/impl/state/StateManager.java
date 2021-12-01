@@ -13,8 +13,8 @@ import java.util.List;
 
 public class StateManager {
     private static final List<LanguageMatcher> languageMatchers = new ArrayList<>();
-    private static boolean resourceLoadViaLanguage = false;
     private static final List<ResourceReloader> reloaders = new ArrayList<>();
+    private static boolean resourceLoadViaLanguage = false;
 
     static {
         languageMatchers.addAll(Arrays.asList(new CodeLanguageMatcher(), new NameLanguageMatcher(), new RegionLanguageMatcher()));

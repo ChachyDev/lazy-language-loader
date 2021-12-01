@@ -11,6 +11,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -48,9 +49,11 @@ public class MixinLanguageOptionsScreen extends Screen {
     }
 
     private void handleText(String text) {
+        List<LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry> children = languageSelectionList.children();
+
         if (text.isBlank() || text.isBlank()) {
             int initialSize = initialComponents.size();
-            int currentSize = languageSelectionList.children().size();
+            int currentSize = children.size();
 
             if (initialSize != currentSize) {
                 languageSelectionList.replaceEntries(initialComponents);
@@ -59,23 +62,29 @@ public class MixinLanguageOptionsScreen extends Screen {
             for (LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry entry : initialComponents) {
                 LanguageDefinition def = ((LanguageEntryAccessor) entry).getLanguageDefinition();
 
-                if (!StateManager.isMatchable(text, def)) {
-                    languageSelectionList.removeEntry(entry);
+                if (StateManager.isMatchable(text, def)) {
+                    safeAdd(entry);
                 } else {
-                    if (!languageSelectionList.children().contains(entry)) {
-                        languageSelectionList.addEntry(entry);
-                    }
+                    languageSelectionList.removeEntry(entry);
                 }
             }
         }
         fixScroll();
     }
 
+    @Unique
     private void fixScroll() {
         if (((Scrollable) languageSelectionList).hasScrolled()) {
             languageSelectionList.setScrollAmount(languageSelectionList.getScrollAmount());
         } else {
             languageSelectionList.centerScrollOn(languageSelectionList.getSelectedOrNull());
+        }
+    }
+
+    @Unique
+    private void safeAdd(LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry entry) {
+        if (!languageSelectionList.children().contains(entry)) {
+            languageSelectionList.addEntry(entry);
         }
     }
 }
