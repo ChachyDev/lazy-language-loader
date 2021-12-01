@@ -1,5 +1,6 @@
 package club.chachy.lazylanguageloader.client.mixin.optimizations.splash;
 
+import club.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Overlay;
 import net.minecraft.client.gui.screen.Screen;
@@ -14,13 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class MixinMinecraftClient {
-    @Shadow
-    @Nullable
-    public Screen currentScreen;
-
     @Inject(method = "setOverlay", at = @At("HEAD"), cancellable = true)
     private void lazyLanguageLoader$$setOverlay(Overlay overlay, CallbackInfo ci) {
-        if (overlay instanceof SplashOverlay && currentScreen instanceof LanguageOptionsScreen) {
+        if (overlay instanceof SplashOverlay && StateManager.isResourceLoadViaLanguage()) {
             ci.cancel();
         }
     }
