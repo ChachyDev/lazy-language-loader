@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.mixin.searchbar;
+package club.chachy.lazylanguageloader.client.mixin.ui.searchbar;
 
 import club.chachy.lazylanguageloader.client.api.scroll.Scrollable;
 import net.minecraft.client.gui.widget.EntryListWidget;
