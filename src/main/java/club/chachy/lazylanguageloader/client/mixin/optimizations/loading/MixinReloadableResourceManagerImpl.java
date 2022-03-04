@@ -11,22 +11,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
+
 @Mixin(ReloadableResourceManagerImpl.class)
 public class MixinReloadableResourceManagerImpl {
     @ModifyArg(
         method = "reload",
         at = @At(
             value = "INVOKE",
-            target = "Lcom/google/common/collect/Lists;newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;",
-            remap = false
+            target = "Lnet/minecraft/resource/SimpleResourceReload;start(Lnet/minecraft/resource/ResourceManager;Ljava/util/List;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Z)Lnet/minecraft/resource/ResourceReload;"
         )
     )
-    private Iterable<ResourceReloader> lazyLanguageLoader$$onReload(Iterable<ResourceReloader> reloaders) {
-        if (StateManager.isResourceLoadViaLanguage()) {
-            return StateManager.getResourceReloaders();
-        }
-
-        return reloaders;
+    private List<ResourceReloader> lazyLanguageLoader$$onReload(List<ResourceReloader> reloaders) {
+        return StateManager.isResourceLoadViaLanguage() ? StateManager.getResourceReloaders() : reloaders;
     }
 
     @Inject(method = "registerReloader", at = @At("HEAD"))
