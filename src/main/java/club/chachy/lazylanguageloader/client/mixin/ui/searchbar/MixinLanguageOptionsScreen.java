@@ -9,7 +9,6 @@ import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.LanguageDefinition;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -49,7 +48,7 @@ public class MixinLanguageOptionsScreen extends Screen {
 
         int w = width / 5;
 
-        searchText = new TextFieldWidget(textRenderer, width - (w + 5), 11, w, 15, LiteralText.EMPTY);
+        searchText = new TextFieldWidget(textRenderer, width - (w + 5), 11, w, 15, Text.empty());
 
         searchText.setSuggestion(lazyLanguageLoader$$truncateByWidth(Constants.SUGGESTION_TEXT, searchText, Constants.TRUNCATION_MARKER));
         searchText.setChangedListener(this::lazyLanguageLoader$$handleText);
@@ -71,7 +70,7 @@ public class MixinLanguageOptionsScreen extends Screen {
 
             searchText.setSuggestion(lazyLanguageLoader$$truncateByWidth(Constants.SUGGESTION_TEXT, searchText, Constants.TRUNCATION_MARKER));
         } else {
-            searchText.setSuggestion(LiteralText.EMPTY.asString());
+            searchText.setSuggestion(Constants.EMPTY_TEXT);
             for (LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry entry : initialComponents) {
                 LanguageDefinition def = ((LanguageEntryAccessor) entry).getLanguageDefinition();
 
