@@ -8,7 +8,6 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.resource.language.LanguageDefinition;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -72,7 +71,7 @@ public class MixinLanguageOptionsScreen extends Screen {
         } else {
             searchText.setSuggestion(Constants.EMPTY_TEXT);
             for (LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry entry : initialComponents) {
-                LanguageDefinition def = ((LanguageEntryAccessor) entry).getLanguageDefinition();
+                Text def = ((LanguageEntryAccessor) entry).getLanguageDefinition();
 
                 if (StateManager.isMatchable(text, def)) {
                     lazyLanguageLoader$$safeAdd(entry);

@@ -1,24 +1,15 @@
 package club.chachy.lazylanguageloader.client.impl.state;
 
-import club.chachy.lazylanguageloader.client.api.language.LanguageMatcher;
-import club.chachy.lazylanguageloader.client.impl.language.CodeLanguageMatcher;
-import club.chachy.lazylanguageloader.client.impl.language.NameLanguageMatcher;
-import club.chachy.lazylanguageloader.client.impl.language.RegionLanguageMatcher;
-import net.minecraft.client.resource.language.LanguageDefinition;
 import net.minecraft.resource.ResourceReloader;
+import net.minecraft.text.Text;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class StateManager {
-    private static final List<LanguageMatcher> languageMatchers = new ArrayList<>();
     private static final List<ResourceReloader> reloaders = new ArrayList<>();
     private static boolean resourceLoadViaLanguage = false;
-
-    static {
-        languageMatchers.addAll(Arrays.asList(new CodeLanguageMatcher(), new NameLanguageMatcher(), new RegionLanguageMatcher()));
-    }
 
     public static boolean isResourceLoadViaLanguage() {
         return resourceLoadViaLanguage;
@@ -43,7 +34,11 @@ public class StateManager {
         reloaders.add(reloader);
     }
 
-    public static boolean isMatchable(String input, LanguageDefinition definition) {
-        return languageMatchers.stream().anyMatch((m) -> m.matches(input, definition));
+    public static boolean isMatchable(String input, Text definition) {
+        return isMatchable(input, definition.getString());
+    }
+
+    public static boolean isMatchable(String input, String definition) {
+        return definition.toLowerCase(Locale.ROOT).contains(input.toLowerCase(Locale.ROOT));
     }
 }
