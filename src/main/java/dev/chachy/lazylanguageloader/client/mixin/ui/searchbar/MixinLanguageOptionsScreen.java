@@ -1,9 +1,9 @@
-package club.chachy.lazylanguageloader.client.mixin.ui.searchbar;
+package dev.chachy.lazylanguageloader.client.mixin.ui.searchbar;
 
-import club.chachy.lazylanguageloader.client.api.scroll.Scrollable;
-import club.chachy.lazylanguageloader.client.impl.state.StateManager;
-import club.chachy.lazylanguageloader.client.impl.utils.Constants;
-import club.chachy.lazylanguageloader.client.mixin.ui.searchbar.accessor.LanguageEntryAccessor;
+import dev.chachy.lazylanguageloader.client.api.scroll.Scrollable;
+import dev.chachy.lazylanguageloader.client.impl.state.StateManager;
+import dev.chachy.lazylanguageloader.client.impl.utils.Constants;
+import dev.chachy.lazylanguageloader.client.mixin.ui.searchbar.accessor.LanguageEntryAccessor;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;

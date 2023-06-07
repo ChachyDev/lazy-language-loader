@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "club.chachy.lazylanguageloader.client.mixin",
+  "package": "dev.chachy.lazylanguageloader.client.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
     "optimizations.loading.MixinLanguageOptionsScreen",

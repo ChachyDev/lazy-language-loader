@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.mixin.optimizations.splash;
+package dev.chachy.lazylanguageloader.client.mixin.optimizations.splash;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Overlay;

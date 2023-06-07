@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client.impl.state;
+package dev.chachy.lazylanguageloader.client.impl.state;
 
 import net.minecraft.resource.ResourceReloader;
 import net.minecraft.text.Text;

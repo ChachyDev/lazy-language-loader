@@ -16,7 +16,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "club.chachy.lazylanguageloader.client.LazyLanguageLoaderMod"
+      "dev.chachy.lazylanguageloader.client.LazyLanguageLoaderMod"
     ]
   },
   "mixins": [

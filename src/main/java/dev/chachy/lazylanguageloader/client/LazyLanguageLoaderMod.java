@@ -1,4 +1,4 @@
-package club.chachy.lazylanguageloader.client;
+package dev.chachy.lazylanguageloader.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

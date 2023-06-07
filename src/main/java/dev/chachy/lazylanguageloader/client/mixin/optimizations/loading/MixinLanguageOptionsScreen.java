@@ -1,8 +1,7 @@
-package club.chachy.lazylanguageloader.client.mixin.optimizations.loading;
+package dev.chachy.lazylanguageloader.client.mixin.optimizations.loading;
 
-import club.chachy.lazylanguageloader.client.impl.state.StateManager;
+import dev.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -11,19 +10,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LanguageOptionsScreen.class)
 public class MixinLanguageOptionsScreen {
     @Inject(
-        method = "method_19820",
+        method = "onDone",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/MinecraftClient;reloadResources()Ljava/util/concurrent/CompletableFuture;",
             ordinal = 0
         )
     )
-    private void lazyLanguageLoader$$preResourceLoad(ButtonWidget widget, CallbackInfo info) {
+    private void lazyLanguageLoader$$preResourceLoad(CallbackInfo info) {
         StateManager.setResourceLoadViaLanguage(true);
     }
 
     @Inject(
-        method = "method_19820",
+        method = "onDone",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/MinecraftClient;reloadResources()Ljava/util/concurrent/CompletableFuture;",
@@ -31,7 +30,7 @@ public class MixinLanguageOptionsScreen {
             shift = At.Shift.AFTER
         )
     )
-    private void lazyLanguageLoader$$postResourceLoad(ButtonWidget widget, CallbackInfo info) {
+    private void lazyLanguageLoader$$postResourceLoad(CallbackInfo info) {
         StateManager.setResourceLoadViaLanguage(false);
     }
 }

@@ -1,6 +1,6 @@
-package club.chachy.lazylanguageloader.client.mixin.optimizations.loading;
+package dev.chachy.lazylanguageloader.client.mixin.optimizations.loading;
 
-import club.chachy.lazylanguageloader.client.impl.state.StateManager;
+import dev.chachy.lazylanguageloader.client.impl.state.StateManager;
 import net.minecraft.client.resource.language.LanguageManager;
 import net.minecraft.client.search.SearchManager;
 import net.minecraft.resource.ReloadableResourceManagerImpl;
