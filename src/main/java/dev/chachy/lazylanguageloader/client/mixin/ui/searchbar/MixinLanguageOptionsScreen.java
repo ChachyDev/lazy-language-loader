@@ -34,14 +34,7 @@ public class MixinLanguageOptionsScreen extends Screen {
         super(title);
     }
 
-    @Inject(
-        method = "init",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/client/gui/screen/option/LanguageOptionsScreen;addSelectableChild(Lnet/minecraft/client/gui/Element;)Lnet/minecraft/client/gui/Element;",
-            shift = At.Shift.AFTER
-        )
-    )
+    @Inject(method = "init", at = @At("TAIL"))
     private void lazyLanguageLoader$$init(CallbackInfo ci) {
         initialComponents = new ArrayList<>(languageSelectionList.children());
 
@@ -59,7 +52,7 @@ public class MixinLanguageOptionsScreen extends Screen {
     private void lazyLanguageLoader$$handleText(String text) {
         List<LanguageOptionsScreen.LanguageSelectionListWidget.LanguageEntry> children = languageSelectionList.children();
 
-        if (text.isBlank() || text.isBlank()) {
+        if (text.isBlank()) {
             int initialSize = initialComponents.size();
             int currentSize = children.size();
 
@@ -119,6 +112,7 @@ public class MixinLanguageOptionsScreen extends Screen {
         }
     }
 
+    @Unique
     private String lazyLanguageLoader$$addTruncationMarker(String text, String marker) {
         return text.length() > marker.length() ? text.substring(0, text.length() - marker.length()) : marker;
     }
