@@ -34,7 +34,7 @@ public class MixinLanguageOptionsScreen extends Screen {
         super(title);
     }
 
-    @Inject(method = "init", at = @At("TAIL"))
+    @Inject(method = "initFooter", at = @At("TAIL"))
     private void lazyLanguageLoader$$init(CallbackInfo ci) {
         initialComponents = new ArrayList<>(languageSelectionList.children());
 
