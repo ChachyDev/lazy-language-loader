@@ -3,6 +3,7 @@ package dev.chachy.lazylanguageloader.client.mixin.ui.searchbar;
 import dev.chachy.lazylanguageloader.client.api.scroll.Scrollable;
 import dev.chachy.lazylanguageloader.client.impl.state.StateManager;
 import dev.chachy.lazylanguageloader.client.impl.utils.Constants;
+import dev.chachy.lazylanguageloader.client.mixin.ui.searchbar.accessor.EntryListWidgetAccessor;
 import dev.chachy.lazylanguageloader.client.mixin.ui.searchbar.accessor.LanguageEntryAccessor;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.LanguageOptionsScreen;
@@ -79,7 +80,7 @@ public class MixinLanguageOptionsScreen extends Screen {
     @Unique
     private void lazyLanguageLoader$$fixScroll() {
         if (((Scrollable) languageSelectionList).hasScrolled()) {
-            languageSelectionList.setScrollAmount(languageSelectionList.getScrollAmount());
+            ((EntryListWidgetAccessor) languageSelectionList).invokeScroll((int) languageSelectionList.getScrollY());
         } else {
             languageSelectionList.centerScrollOn(languageSelectionList.getSelectedOrNull());
         }

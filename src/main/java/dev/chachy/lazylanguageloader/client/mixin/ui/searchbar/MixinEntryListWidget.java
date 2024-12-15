@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EntryListWidget.class)
 public class MixinEntryListWidget implements Scrollable {
@@ -14,8 +14,8 @@ public class MixinEntryListWidget implements Scrollable {
     private boolean scrolled;
 
 
-    @Inject(method = "mouseScrolled", at = @At("HEAD"))
-    private void mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "scroll", at = @At("HEAD"))
+    private void scroll(int amount, CallbackInfo ci) {
         this.scrolled = true;
     }
 
