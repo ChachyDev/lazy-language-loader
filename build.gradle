@@ -1,5 +1,5 @@
 plugins {
-    id "fabric-loom" version "1.10-SNAPSHOT"
+    id "fabric-loom" version "1.11-SNAPSHOT"
 }
 
 java {
@@ -10,12 +10,12 @@ java {
     withSourcesJar()
 }
 
-version = "0.3.8"
+version = "0.3.9"
 group = "dev.chachy"
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.21.8"
-    mappings "net.fabricmc:yarn:1.21.8+build.1:v2"
+    minecraft "com.mojang:minecraft:1.21.9"
+    mappings "net.fabricmc:yarn:1.21.9+build.1:v2"
     modImplementation "net.fabricmc:fabric-loader:0.16.14"
 }
 
