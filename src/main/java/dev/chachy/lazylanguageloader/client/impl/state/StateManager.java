@@ -1,11 +1,9 @@
 package dev.chachy.lazylanguageloader.client.impl.state;
 
 import net.minecraft.resource.ResourceReloader;
-import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class StateManager {
     private static final List<ResourceReloader> reloaders = new ArrayList<>();
@@ -34,11 +32,4 @@ public class StateManager {
         reloaders.add(reloader);
     }
 
-    public static boolean isMatchable(String input, Text definition) {
-        return isMatchable(input, definition.getString());
-    }
-
-    public static boolean isMatchable(String input, String definition) {
-        return definition.toLowerCase(Locale.ROOT).contains(input.toLowerCase(Locale.ROOT));
-    }
 }
