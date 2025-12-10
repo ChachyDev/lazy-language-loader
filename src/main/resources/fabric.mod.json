@@ -14,18 +14,13 @@
   },
   "license": "LGPL-3.0",
   "environment": "client",
-  "entrypoints": {
-    "client": [
-      "dev.chachy.lazylanguageloader.client.LazyLanguageLoaderMod"
-    ]
-  },
   "mixins": [
     "lazy-language-loader.mixin.json"
   ],
   "icon": "assets/lazy-language-loader/icon/icon_128.png",
   "accessWidener": "lazy-language-loader.accesswidener",
   "depends": {
-    "minecraft": ">=1.21.9",
+    "minecraft": ">=1.21.11",
     "java": ">=21"
   }
 }
