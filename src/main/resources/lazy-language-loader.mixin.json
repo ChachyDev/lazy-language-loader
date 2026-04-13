@@ -4,9 +4,9 @@
   "package": "dev.chachy.lazylanguageloader.client.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "optimizations.loading.MixinLanguageOptionsScreen",
-    "optimizations.loading.MixinReloadableResourceManagerImpl",
-    "optimizations.splash.MixinMinecraftClient"
+    "optimizations.loading.MixinLanguageSelectScreen",
+    "optimizations.loading.MixinReloadableResourceManager",
+    "optimizations.splash.MixinMinecraft"
   ],
   "injectors": {
     "defaultRequire": 1

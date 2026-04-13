@@ -1,12 +1,12 @@
 package dev.chachy.lazylanguageloader.client.impl.state;
 
-import net.minecraft.resource.ResourceReloader;
+import net.minecraft.server.packs.resources.PreparableReloadListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StateManager {
-    private static final List<ResourceReloader> reloaders = new ArrayList<>();
+    private static final List<PreparableReloadListener> reloaders = new ArrayList<>();
     private static boolean resourceLoadViaLanguage = false;
 
     public static boolean isResourceLoadViaLanguage() {
@@ -17,7 +17,7 @@ public class StateManager {
         StateManager.resourceLoadViaLanguage = resourceLoadViaLanguage;
     }
 
-    public static List<ResourceReloader> getResourceReloaders() {
+    public static List<PreparableReloadListener> getResourceReloaders() {
         return reloaders;
     }
 
@@ -28,7 +28,7 @@ public class StateManager {
      *
      * @param reloader Reloader to be used on language reloads
      */
-    public static void addResourceReloader(ResourceReloader reloader) {
+    public static void addResourceReloader(PreparableReloadListener reloader) {
         reloaders.add(reloader);
     }
 

@@ -19,7 +19,7 @@
   ],
   "icon": "assets/lazy-language-loader/icon/icon_128.png",
   "depends": {
-    "minecraft": ">=1.21.11",
+    "minecraft": ">=26.1",
     "java": ">=21"
   }
 }
