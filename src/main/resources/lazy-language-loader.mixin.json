@@ -6,7 +6,7 @@
   "client": [
     "optimizations.loading.MixinLanguageSelectScreen",
     "optimizations.loading.MixinReloadableResourceManager",
-    "optimizations.splash.MixinMinecraft"
+    "optimizations.splash.MixinGui"
   ],
   "injectors": {
     "defaultRequire": 1
